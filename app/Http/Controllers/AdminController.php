@@ -10,6 +10,8 @@ use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderItems;
+use PDF;
+
 
 class AdminController extends Controller
 {
@@ -130,29 +132,12 @@ class AdminController extends Controller
     
 
 
-    
-
-    
-
-
-    public function invoice($user_id)
+    public function print_pdf($id)
     {
-        
-        $user = Auth::user();
-        $invoice = OrderItems::where('user_id', '=',$user->id)->get();
-        dd($invoice);
-        return redirect()->back();
+        $orders = Order::find($id);
+        $pdf = PDF::loadView('admin.pdf' ,compact('orders'));
+        return $pdf->download('order_details.pdf');
     }
-
-
-
-   
-
-
-
-
-
-
-    
+ 
 
 }

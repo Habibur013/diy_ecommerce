@@ -26,3 +26,6 @@
     .text_color{
         color:black;
     }
+    .show{
+      visibility: visible !important;
+    }

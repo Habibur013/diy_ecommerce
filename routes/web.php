@@ -41,9 +41,7 @@ route::get('/edit_product/{id}',[AdminController::class, 'edit_product']);
 route::post('/edit_product_confirm/{id}',[AdminController::class, 'edit_product_confirm']);
 route::get('/view_order',[AdminController::class, 'view_order']);
 route::get('/delivered/{id}',[AdminController::class, 'delivered']);
-
-
-route::get('/invoice/{user_id}',[AdminController::class, 'invoice']);
+route::get('/print_pdf/{id}',[AdminController::class, 'print_pdf']);
 
 
 

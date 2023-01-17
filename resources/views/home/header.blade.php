@@ -1,6 +1,7 @@
-<header class="header_section">
+
+<section class="header_section">
     <div class="container">
-       <nav class="navbar navbar-expand-lg custom_nav-container ">
+       <nav class="navbar navbar-expand-lg custom_nav-container">
           <a class="navbar-brand" href="{{url('/')}}"><img width="250" src="images/logo.png" alt="Logo Here" /></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class=""> </span>
@@ -10,14 +11,20 @@
 
 
 
-                <li class="nav-item active">
-                   <a class="nav-link" href="{{ url('/')}}">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item {{ Request::is('/') ? 'active' : ''}}">
+                   <a class="nav-link" href="{{ url('/')}}">Home</a>
                 </li>
                 
-                <li class="nav-item">
-                   <a class="nav-link" href="{{ url('show_cart')}}">Cart</a>
+                <li class="nav-item {{ Request::is('show_cart') ? 'active' : ''}}">
+                   @if (Route::has('login'))
+                   @auth
+                   <a class="nav-link" href="{{ url('show_cart')}}">Cart({{ $cart->count('user_id')}})</a>
+                   @else
+                   <a class="nav-link" href="{{ url('show_cart')}}">Cart(0)</a>
+                    @endauth
+                   @endif
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ Request::is('view_event_galary') ? 'active' : ''}}">
                    <a class="nav-link" href="{{ url('view_event_galary') }}">Event Gallary</a>
                 </li>
                 
@@ -47,5 +54,5 @@
           </div>
        </nav>
     </div>
- </header>
+   </section>
 
