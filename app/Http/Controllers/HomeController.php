@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Gallary;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderItems;
@@ -24,7 +25,8 @@ class HomeController extends Controller
 
     public function view_event_galary()
     {
-        return view('home.gallary');
+            $gallary = Gallary::all();
+        return view('home.event_gallary', compact('gallary'));
     }
 
 

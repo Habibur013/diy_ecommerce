@@ -49,8 +49,8 @@
         </a>
         <div class="collapse" id="auth">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="#"> View Photo </a></li>
-            <li class="nav-item"> <a class="nav-link" href="#"> Add Photo </a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ url('view_gallary_photo')}}"> Add Photo </a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ url('show_gallary')}}"> View Photo </a></li>
           </ul>
         </div>
       </li>

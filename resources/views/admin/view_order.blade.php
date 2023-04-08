@@ -27,17 +27,15 @@
                     </div>
 
                     <div>
-                         <table class="table table-striped table-responsive" id="myTable">
+                         <table class="table table-striped " id="myTable">
                                 <thead class="bg-info" style="">
                                     <tr>
                                         <th style="color:white;text-align:center !important;"><b>Name<b></th>
-                                        <th style="color:white;text-align:center !important;"><b>Email<b></th>
-                                        <th style="color:white;text-align:center !important;"><b>Phone<b></th>
+                                        
                                         <th style="color:white;text-align:center !important;"><b>Delivery address<b></th>
                                         <th style="color:white;text-align:center !important;"><b>Event Date<b></th>
                                         <th style="color:white;text-align:center !important;"><b>Return Date<b></th>
-                                        <th style="color:white;text-align:center !important;"><b>Payment Status<b></th>
-                                        <th style="color:white;text-align:center !important;"><b>Delivery Status<b></th>
+                                       
                                         <th style="color:white;text-align:center !important;"><b>Delivered<b></th>
                                         <th style="color:white;text-align:center !important;"><b>Product Information<b></th>
                                         <th style="color:white;text-align:center !important;"><b>Invoice<b></th>
@@ -50,13 +48,11 @@
                                 <tbody>
                                         <tr>
                                             <td>{{ $item->name }}</td>
-                                            <td>{{ $item->email }}</td>
-                                            <td>{{ $item->delivery_phone }}</td>
+                                            
                                             <td>{{ $item->delivery_address }}</td>
                                             <td>{{ $item->event_date }}</td>
                                             <td>{{ $item->return_date }}</td>
-                                            <td>{{ $item->payment_status }}</td>
-                                            <td>{{ $item->delivery_status }}</td>
+                                            
                                             <td>
                                                 @if ($item->delivery_status == 'Processing')
                                                     <a href="{{ url('delivered', $item->id) }}"
@@ -73,6 +69,9 @@
                                                             <th style="color:white;">Name</th>
                                                             <th style="color:white;text-align:center !important;">Qty</th>
                                                             <th style="color:white;text-align:center !important;">Image</th>
+                                                            <th style="color:white;text-align:center !important;">U_Price</th>
+
+                                                            
                                                         </tr>
                                                     </thead>
                                                     <tbody style="margin: 0px !important;">
@@ -81,6 +80,16 @@
                                                                 <td>{{ $data->product_title }}</td>
                                                                 <td>{{ $data->quantity }}</td>
                                                                 <td><img src="/productImage/{{ $data->image }}"style="height:30px;width:40px;"></td>
+                                                                <td>
+                                                                    <form action="{{ url('/add_invoice_price')}}" method="POST" enctype="multipart/form-data">
+                                                                        @csrf
+                                                                       
+                                                                            <input class="text_color" style="width: 80px;height: 20px;" type="number" name="u_price" min="0" required="">
+                                                                            <span class="text-light">
+                                                                                <input type="submit" value="Save" class="btn btn-primary">
+                                                                            </span>
+                                                                    </form>
+                                                                </td>
                                                           </tr>
                                                           @endforeach
                                                     </tbody>

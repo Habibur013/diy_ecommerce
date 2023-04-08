@@ -42,6 +42,15 @@ route::post('/edit_product_confirm/{id}',[AdminController::class, 'edit_product_
 route::get('/view_order',[AdminController::class, 'view_order']);
 route::get('/delivered/{id}',[AdminController::class, 'delivered']);
 route::get('/print_pdf/{id}',[AdminController::class, 'print_pdf']);
+route::post('/add_invoice_price',[AdminController::class, 'add_invoice_price']);
+
+
+
+route::get('/view_gallary_photo',[AdminController::class, 'view_gallary_photo']);
+route::post('/add_gallary_photo',[AdminController::class, 'add_gallary_photo']);
+route::get('/show_gallary',[AdminController::class, 'show_gallary']);
+route::get('/delete_gallary/{id}',[AdminController::class, 'delete_gallary']);
+
 
 
 
