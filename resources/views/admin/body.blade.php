@@ -164,7 +164,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
               <div>
-                <span>Copyright © <b class="text-success">D.I.Y Rentals Nyc.llc</b> 2022 </span><br>
+                <span>Copyright © <b class="text-success">D.I.Y Rentals Nyc.LLC</b> 2023 </span><br>
                 <span>Developed By <b class="text-danger">Dev Team</b></span>
               </div>
             </div>

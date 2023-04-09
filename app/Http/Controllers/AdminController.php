@@ -7,9 +7,12 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Gallary;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderItems;
+use PDF;
+
 
 class AdminController extends Controller
 {
@@ -130,29 +133,62 @@ class AdminController extends Controller
     
 
 
-    
-
-    
-
-
-    public function invoice($user_id)
+    public function print_pdf($id)
     {
-        
-        $user = Auth::user();
-        $invoice = OrderItems::where('user_id', '=',$user->id)->get();
-        dd($invoice);
+        $orders = Order::find($id);
+        $pdf = PDF::loadView('admin.pdf' ,compact('orders'));
+        return $pdf->download('order_details.pdf');
+    }
+
+
+
+    
+    public function add_invoice_price( Request $request)
+    {
+        $id = Auth::user()->id;
+        $order_price = OrderItems::where('product_id', '=', $id)->get();
+        $data = new OrderItems();
+        $data->u_price = $request->u_price;
+        $data->save();
         return redirect()->back();
     }
 
 
 
-   
 
 
 
 
+    public function view_gallary_photo()
+    {   $gallary = Gallary::all();
+        return view('admin.gallary', compact('gallary'));
+    }
+    public function  add_gallary_photo(Request $request)
+    {  
+        $gallary = new Gallary();
 
+         $image = $request->image;
+        $imagename = time().'.'.$image->getClientOriginalExtension();
+        $request->image->move('gallaryImage',$imagename);
+        $gallary->image = $imagename;
 
-    
+        $gallary->save();
+        
+        return redirect()->back()->with('message', 'Gallary Image Added Successfully');
+        //return view('admin.gallary');
+    }
+
+    public function show_gallary()
+    {   
+        $gallary = Gallary::all();
+        return view('admin.show_gallary', compact('gallary'));
+    }
+    public function delete_gallary($id)
+    {   
+        $gallary = Gallary::find($id);
+        $gallary->delete();
+        return redirect()->back()->with('message', 'Gallary Images Deleted Successfully');
+    }
+ 
 
 }

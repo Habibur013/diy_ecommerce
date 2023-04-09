@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Gallary;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderItems;
@@ -15,34 +16,39 @@ use App\Models\OrderItems;
 class HomeController extends Controller
 {
     public function index()
-    {
+    {  
         $products = Product::paginate(6);
-        return view('home.userpage', compact('products'));
+            $cart = Cart::all();
+        return view('home.userpage', compact('products','cart'));
     }
 
 
     public function view_event_galary()
     {
-        return view('home.gallary');
+            $gallary = Gallary::all();
+        return view('home.event_gallary', compact('gallary'));
     }
 
 
 
     public function redirect()
-    {
+    {   
         $usertype = Auth::user()->usertype;
         if ($usertype == '1') {
             return view('admin.home');
         } else {
+            $cart = Cart::all();
             $products = Product::paginate(6);
-            return view('home.userpage', compact('products'));
+            return view('home.userpage', compact('products' ,'cart'));
         }
+        
     }
 
     function product_details($id)
-    {
+    {   
         $product = Product::find($id);
-        return view('home.product_details', compact('product'));
+        $cart = Cart::all();
+        return view('home.product_details', compact('product', 'cart'));
     }
 
     public function add_cart(Request $request, $id)
@@ -63,10 +69,12 @@ class HomeController extends Controller
             $cart->product_id = $product->id;
             $cart->quantity = $request->quantity;
             $cart->save();
+            
             return redirect()->back();
         } else {
             return redirect('login');
         }
+        
     }
 
     public function show_cart()

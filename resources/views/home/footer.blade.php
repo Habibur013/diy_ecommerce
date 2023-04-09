@@ -56,7 +56,7 @@
             <div class="footer-info" style="margin-top:-10px;">
                <div class="col-lg-7 mx-auto px-0">
                   <p>
-                     &copy; <span id="displayYear"></span> All Rights Reserved By<b class="text-danger"> D.I.Y Rentals Nyc llc</b>
+                     &copy; <span id="displayYear"></span> All Rights Reserved By<b class="text-danger"> D.I.Y Rentals Nyc LLC</b>
                      <br>
          
                      Developed By D.I.Y Rentals Dev Team

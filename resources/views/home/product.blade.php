@@ -19,10 +19,10 @@
                           
                         <form action="{{ url('add_cart',$items->id)}}" method="POST">
                           @csrf
-                          <div class="row" >
+                          <div class="row" style="pading-right:15px !important;" id="q_control">
 
-                                <div class=" col-sm-3 col-md-3" style="margin-left:50px;">
-                                  <input class="text-center" type="number" name="quantity" value="1" min="1" style="padding:0px;margin-left:15px;border:1px solid black;border-radius: 10px;height:38px;">
+                                <div class=" col-sm-3 col-md-3 ml-5">
+                                  <input class="text-center" type="number" name="quantity" value="1" min="1" style=" border:1px solid black; border-radius: 20px; height:38px;">
                                </div>
                                <div class="col-sm-3 col-md-3">
                                  <input type="submit" value="Add to Cart"  style="padding:10px;border-radius: 50px;">
