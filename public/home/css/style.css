@@ -1120,6 +1120,13 @@ form input[type="submit"]:focus {
     font-weight: 400;
 }
 
+.show {
+    visibility: visible !important;
+}
+
+.navbar-collapse.collapse {
+    visibility: visible !important;
+}
 
 
 
