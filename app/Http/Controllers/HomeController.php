@@ -16,36 +16,35 @@ use App\Models\OrderItems;
 class HomeController extends Controller
 {
     public function index()
-    {  
+    {
         $products = Product::paginate(6);
-            $cart = Cart::all();
-        return view('home.userpage', compact('products','cart'));
+        $cart = Cart::all();
+        return view('home.userpage', compact('products', 'cart'));
     }
 
 
     public function view_event_galary()
     {
-            $gallary = Gallary::all();
+        $gallary = Gallary::all();
         return view('home.event_gallary', compact('gallary'));
     }
 
 
 
     public function redirect()
-    {   
+    {
         $usertype = Auth::user()->usertype;
         if ($usertype == '1') {
             return view('admin.home');
         } else {
             $cart = Cart::all();
             $products = Product::paginate(6);
-            return view('home.userpage', compact('products' ,'cart'));
+            return view('home.userpage', compact('products', 'cart'));
         }
-        
     }
 
     function product_details($id)
-    {   
+    {
         $product = Product::find($id);
         $cart = Cart::all();
         return view('home.product_details', compact('product', 'cart'));
@@ -69,12 +68,11 @@ class HomeController extends Controller
             $cart->product_id = $product->id;
             $cart->quantity = $request->quantity;
             $cart->save();
-            
+
             return redirect()->back();
         } else {
             return redirect('login');
         }
-        
     }
 
     public function show_cart()
@@ -126,7 +124,7 @@ class HomeController extends Controller
             $orderitems->user_id = $order->user_id;
 
             $orderitems->product_title = $cart->product_title;
-            $orderitems->price = $cart->price;
+            // $orderitems->price = $cart->price;
             $orderitems->quantity = $cart->quantity;
             $orderitems->image = $cart->image;
             $orderitems->product_id = $cart->product_id;
