@@ -43,7 +43,7 @@
                 </div>
              @endif
 
-
+@if($cart->count() >0)
                     
             <div class="row">
                  <div class="col-md-12">
@@ -78,6 +78,7 @@
                   </tbody>
                 </table>
 
+         
 
               <form action="{{ url('add_order/')}}" method="POST">
                    @csrf
@@ -117,11 +118,14 @@
                          <input class="btn btn-info" type="submit" value="Pay Using Card">
                    </div>
                 </div>
-
-   
              </form>
 
 
+              @else 
+                      <div class="card-body text-center text-danger">
+                          <h2> Your <i class="fa fa-shopping-cart"></i> Cart is Empty</h2>
+                      </div>
+              @endif
 
 
 

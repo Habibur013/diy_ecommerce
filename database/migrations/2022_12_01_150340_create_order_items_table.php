@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('user_id');
             $table->string('price')->nullable();
             $table->string('quantity')->nullable();
+            $table->string('u_price')->nullable();
             $table->string('image')->nullable();
             $table->string('product_id')->nullable();
             $table->string('product_title')->nullable();

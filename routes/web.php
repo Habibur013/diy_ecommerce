@@ -15,8 +15,8 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-route::get('/',[HomeController::class, 'index']);
-route::get('/view_event_galary',[HomeController::class, 'view_event_galary']);
+route::get('/', [HomeController::class, 'index']);
+route::get('/view_event_galary', [HomeController::class, 'view_event_galary']);
 
 
 Route::middleware([
@@ -29,40 +29,35 @@ Route::middleware([
     })->name('dashboard');
 });
 
-route::get('/redirect',[HomeController::class, 'redirect']);
-route::get('/view_category',[AdminController::class, 'view_category']);
-route::post('/add_category',[AdminController::class, 'add_category']);
-route::get('/delete_category/{id}',[AdminController::class, 'delete_category']);
-route::get('/view_product',[AdminController::class, 'view_product']);
-route::post('/add_product',[AdminController::class, 'add_product']);
-route::get('/show_product',[AdminController::class, 'show_product']);
-route::get('/delete_product/{id}',[AdminController::class, 'delete_product']);
-route::get('/edit_product/{id}',[AdminController::class, 'edit_product']);
-route::post('/edit_product_confirm/{id}',[AdminController::class, 'edit_product_confirm']);
-route::get('/view_order',[AdminController::class, 'view_order']);
-route::get('/delivered/{id}',[AdminController::class, 'delivered']);
-
-
-route::get('/invoice/{user_id}',[AdminController::class, 'invoice']);
-
-
-
-route::get('/product_details/{id}',[HomeController::class, 'product_details']);
-route::post('/add_cart/{id}',[HomeController::class, 'add_cart']);
-route::get('/show_cart',[HomeController::class, 'show_cart']);
-route::get('/remove_cart/{id}',[HomeController::class, 'remove_cart']);
-route::post('/add_order',[HomeController::class, 'add_order']);
+route::get('/redirect', [HomeController::class, 'redirect']);
+route::get('/view_category', [AdminController::class, 'view_category']);
+route::post('/add_category', [AdminController::class, 'add_category']);
+route::get('/delete_category/{id}', [AdminController::class, 'delete_category']);
+route::get('/view_product', [AdminController::class, 'view_product']);
+route::post('/add_product', [AdminController::class, 'add_product']);
+route::get('/show_product', [AdminController::class, 'show_product']);
+route::get('/delete_product/{id}', [AdminController::class, 'delete_product']);
+route::get('/edit_product/{id}', [AdminController::class, 'edit_product']);
+route::post('/edit_product_confirm/{id}', [AdminController::class, 'edit_product_confirm']);
+route::get('/view_order', [AdminController::class, 'view_order']);
+route::get('/update_order/{itemId}', [AdminController::class, 'update_order']);
+route::get('/delivered/{id}', [AdminController::class, 'delivered']);
+route::get('/print_pdf/{id}', [AdminController::class, 'print_pdf']);
+route::post('/add_invoice_price', [AdminController::class, 'add_invoice_price']);
+route::post('/add_rent_price', [AdminController::class, 'add_rent_price']);
 
 
 
+route::get('/view_gallary_photo', [AdminController::class, 'view_gallary_photo']);
+route::post('/add_gallary_photo', [AdminController::class, 'add_gallary_photo']);
+route::get('/show_gallary', [AdminController::class, 'show_gallary']);
+route::get('/delete_gallary/{id}', [AdminController::class, 'delete_gallary']);
 
 
 
 
-
-
-
-
-
-
-
+route::get('/product_details/{id}', [HomeController::class, 'product_details']);
+route::post('/add_cart/{id}', [HomeController::class, 'add_cart']);
+route::get('/show_cart', [HomeController::class, 'show_cart']);
+route::get('/remove_cart/{id}', [HomeController::class, 'remove_cart']);
+route::post('/add_order', [HomeController::class, 'add_order']);
