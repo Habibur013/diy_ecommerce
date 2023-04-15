@@ -24,26 +24,24 @@
                <div class="col-md-6 footer-col">
                   <div class="footer_detail">
 				  
-				  
-                    <b> Motto Here </b>
                     
-                     <p>
-                        "Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with"
+                     <p style="font-family: Verdana, ">
+                        <b> DIY - “do it yourself” </b> literally the name says it all. It is a New York based, full-service luxury decor company. You want to do it yourself but buying the materials is just way too much! So here we are providing party supplies for your events. It doesn’t matter how small or large your event is, or what type of event you are having. When in need of supplies and equipment we are here. Contact us today.
                      </p>
                      <div class="footer_social">
-                        <a href="https://www.facebook.com/diyrentals.nyc.llc">
+                        <a href="https://www.facebook.com/diyrentals.nyc.llc" class="mx-2">
                         <i class="fa fa-facebook" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.instagram.com/diyrentals.nyc.llc/">
+                        <a href="https://www.instagram.com/diyrentals.nyc.llc/" class="mx-2">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
                         </a>
-                        <a href="">
+                        <a href="" class="mx-2">
                         <i class="fa fa-twitter" aria-hidden="true"></i>
                         </a>
-                        <a href="">
+                        <a href="" class="mx-2">
                         <i class="fa fa-linkedin" aria-hidden="true"></i>
                         </a>
-                        <a href="">
+                        <a href="" class="mx-2">
                         <i class="fa fa-pinterest" aria-hidden="true"></i>
                         </a>
                      </div>

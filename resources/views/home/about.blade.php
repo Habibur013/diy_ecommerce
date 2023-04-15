@@ -13,8 +13,7 @@
                 full-service luxury decor company. You want to do it yourself but buying
                 the materials is just way too much! So here we are providing party
                 supplies for your events. It doesn’t matter how small or large your event
-                is, or what type of event you are having. When in need of supplies and
-                equipment we are here. Contact us today
+                is, or what type of event you are having.
             </p>
         </div>
 
